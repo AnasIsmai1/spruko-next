@@ -2,7 +2,7 @@ import Logo from "@/assets/footer/logo-white.png";
 
 export const TopInfoBar = () => {
   return (
-    <div className="bg-blue-600 py-3">
+    <div className="bg-[#1154E3] py-4">
       <div className="max-w-[1300px] mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Left side - Logo and Menu Button */}
@@ -50,8 +50,8 @@ export const TopInfoBar = () => {
                 </svg>
               </div>
               <div className="text-white">
-                <div className="text-sm font-medium">Call to Us</div>
-                <div className="text-xs opacity-90">+123 678 9657</div>
+                <div className="text-base font-medium">Call to Us</div>
+                <div className="text-sm opacity-90">+123 678 9657</div>
               </div>
             </div>
 
@@ -73,8 +73,8 @@ export const TopInfoBar = () => {
                 </svg>
               </div>
               <div className="text-white">
-                <div className="text-sm font-medium">Live Chat</div>
-                <div className="text-xs opacity-90">Chat With Us</div>
+                <div className="text-base font-medium">Live Chat</div>
+                <div className="text-sm opacity-90">Chat With Us</div>
               </div>
             </div>
           </div>
