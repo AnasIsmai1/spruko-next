@@ -11,7 +11,7 @@ export const TopHeader = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 50) {
+      if (currentScrollY > 500) {
         setIsScrolled(true);
 
         if (currentScrollY > lastScrollY) {
@@ -38,9 +38,9 @@ export const TopHeader = () => {
     <div className="bg-transparent">
       <header
         className={`
-                    fixed z-[100] top-0 inset-x-0 w-full
-                    transition-all duration-300 ease-in-out
-                    ${isScrolled ? "bg-white shadow-md" : "bg-blue-600/40"}
+                    sticky z-[100] top-0 inset-x-0 w-full
+                    transition-all duration-300 ease-in-out backdrop-blur
+                    ${isScrolled ? "bg-white text-black shadow-md" : "bg-black/70 text-white"}
                     ${isHeaderVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
                 `}
       >
@@ -53,7 +53,7 @@ export const TopHeader = () => {
                     href="#home"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-900 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white hover:text-white/80"
                     }`}
                   >
@@ -65,7 +65,7 @@ export const TopHeader = () => {
                     href="#domains"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -77,7 +77,7 @@ export const TopHeader = () => {
                     href="#websites"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -89,7 +89,7 @@ export const TopHeader = () => {
                     href="#hosting"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -101,7 +101,7 @@ export const TopHeader = () => {
                     href="#cloud"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -113,7 +113,7 @@ export const TopHeader = () => {
                     href="#email"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -125,7 +125,7 @@ export const TopHeader = () => {
                     href="#security"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -137,7 +137,7 @@ export const TopHeader = () => {
                     href="#pages"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -149,7 +149,7 @@ export const TopHeader = () => {
                     href="#whmcs"
                     className={` font-medium transition-colors ${
                       isScrolled
-                        ? "text-gray-600 hover:text-blue-600"
+                        ? "text-black hover:text-black/80"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -163,7 +163,11 @@ export const TopHeader = () => {
             <div className="flex items-center gap-3">
               <a
                 href="/register"
-                className="text-white text-sm font-semibold bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded transition-colors"
+                className={`text-sm font-semibold px-4 py-2 rounded transition-colors ${
+                  isScrolled
+                    ? "bg-black text-white hover:bg-black/90"
+                    : "bg-white/10 text-white hover:bg-white/20"
+                }`}
               >
                 Register
               </a>
@@ -171,7 +175,7 @@ export const TopHeader = () => {
                 href="/login"
                 className={`text-sm font-semibold px-4 py-2 rounded border transition-colors ${
                   isScrolled
-                    ? "text-gray-700 border-gray-300 hover:bg-gray-50"
+                    ? "text-black border-gray-300 hover:bg-gray-50"
                     : "text-white border-white/40 hover:bg-white/10"
                 }`}
               >
