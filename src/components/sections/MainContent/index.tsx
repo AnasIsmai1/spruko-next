@@ -13,7 +13,7 @@ import { WebsiteBuilder } from "../WebsiteBuilder";
 
 export const MainContent = () => {
   return (
-    <div className="box-border caret-transparent flex flex-col min-h-[1000px]">
+    <div className="box-border caret-transparent flex flex-col min-h-[1000px] relative">
       <TopHeader />
       <HeroSection />
       <FeaturesSection />
