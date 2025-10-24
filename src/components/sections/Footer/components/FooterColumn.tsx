@@ -1,3 +1,7 @@
+import { ArrowRight, Mail, Mailbox, Phone } from "lucide-react";
+import { AiFillCaretRight } from "react-icons/ai";
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 export type FooterColumnProps = {
     type: "brand" | "links" | "newsletter";
     title?: string;
@@ -11,7 +15,8 @@ export type FooterColumnProps = {
     };
     socialLinks?: Array<{
         href: string;
-        iconClass: string;
+        iconClass?: string;
+        icon: React.ReactNode;
     }>;
     links?: Array<{
         href: string;
@@ -47,9 +52,9 @@ export const FooterColumn = (props: FooterColumnProps) => {
                         <li className="box-border caret-transparent text-left mb-2">
                             <a
                                 href="register-domain.html"
-                                className="text-sm box-border caret-transparent leading-[21px]"
+                                className="text-sm box-border caret-transparent leading-[21px] inline-flex gap-2 items-center"
                             >
-                                <i className="text-lg italic box-border caret-transparent leading-[27px] mr-4 before:accent-auto before:box-border before:caret-transparent before:text-white before:inline-block before:text-lg before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-[18px] before:list-outside before:list-none before:text-left before:indent-[0px] before:normal-case before:visible before:border-separate before:font-bootstrap_icons"></i>
+                                <Phone size={16} />
                                 {props.contactInfo.phone}
                             </a>
                         </li>
@@ -58,9 +63,9 @@ export const FooterColumn = (props: FooterColumnProps) => {
                         <li className="box-border caret-transparent text-left mb-2">
                             <a
                                 href="register-domain.html"
-                                className="text-sm box-border caret-transparent leading-[21px]"
+                                className="text-sm box-border caret-transparent leading-[21px] inline-flex gap-2 items-center"
                             >
-                                <i className="text-lg italic box-border caret-transparent leading-[27px] mr-4 before:accent-auto before:box-border before:caret-transparent before:text-white before:inline-block before:text-lg before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-[18px] before:list-outside before:list-none before:text-left before:indent-[0px] before:normal-case before:visible before:border-separate before:font-bootstrap_icons"></i>
+                                <Mail size={16} />
                                 {props.contactInfo.email}
                             </a>
                         </li>
@@ -69,9 +74,9 @@ export const FooterColumn = (props: FooterColumnProps) => {
                         <li className="box-border caret-transparent text-left">
                             <a
                                 href="register-domain.html"
-                                className="text-sm box-border caret-transparent leading-[21px]"
+                                className="text-sm box-border caret-transparent leading-[21px] inline-flex gap-2 items-center"
                             >
-                                <i className="text-lg italic box-border caret-transparent leading-[27px] mr-4 before:accent-auto before:box-border before:caret-transparent before:text-white before:inline-block before:text-lg before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-[18px] before:list-outside before:list-none before:text-left before:indent-[0px] before:normal-case before:visible before:border-separate before:font-bootstrap_icons"></i>
+                                <FaMapMarkerAlt size={16} />
                                 {props.contactInfo.address}
                             </a>
                         </li>
@@ -84,9 +89,9 @@ export const FooterColumn = (props: FooterColumnProps) => {
                             href={social.href}
                             className="text-white/90 text-xs font-medium items-center bg-sky-400 box-border caret-transparent flex shrink-0 h-[37px] justify-center leading-[18px] text-center align-middle w-[37px] mr-2 rounded-[50%] hover:text-white hover:border-blue-700"
                         >
-                            <i
-                                className={`italic box-border caret-transparent block leading-[0px] ${social.iconClass} before:accent-auto before:box-border before:caret-transparent before:text-white/90 before:inline-block before:text-xs before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-3 before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-bootstrap_icons`}
-                            ></i>
+                            <span className="bg-white/20 rounded-full p-[3px]">
+                                {social.icon}
+                            </span>
                         </a>
                     ))}
                 </div>
@@ -104,12 +109,15 @@ export const FooterColumn = (props: FooterColumnProps) => {
                     {props.links?.map((link, index) => (
                         <li
                             key={index}
-                            className="box-border caret-transparent text-left mb-2 before:accent-auto before:bg-white/10 before:box-border before:caret-transparent before:text-white before:inline-block before:text-[8px] before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-[8px] before:list-outside before:list-none before:text-left before:indent-[0px] before:normal-case before:visible before:mr-1.5 before:p-1 before:rounded-[50%] before:border-separate before:font-bootstrap_icons"
+                            className="box-border caret-transparent text-left mb-2"
                         >
                             <a
                                 href={link.href}
-                                className="text-sm box-border caret-transparent leading-[21px]"
+                                className="text-sm box-border caret-transparent leading-[21px] inline-flex gap-2 items-center"
                             >
+                                <span className="bg-white/20 rounded-full p-[3px]">
+                                    <AiFillCaretRight size={8} />
+                                </span>
                                 {link.text}
                             </a>
                         </li>
@@ -130,13 +138,13 @@ export const FooterColumn = (props: FooterColumnProps) => {
                         <input
                             type="text"
                             placeholder={props.newsletterPlaceholder}
-                            className="text-gray-500 text-sm bg-clip-padding box-border caret-transparent block leading-[31.5px] w-full pl-5 pr-[60px] py-1.5 rounded-[800px]"
+                            className="text-gray-500 text-sm bg-white box-border caret-transparent block leading-[31.5px] w-full pl-5 pr-[60px] py-1.5 rounded-[800px]"
                         />
                         <button
                             type="button"
                             className="absolute text-[13.6px] font-medium items-center bg-transparent bg-[linear-gradient(to_right,rgb(20,87,230)_0%,rgb(38,143,230)_100%)] caret-transparent flex shrink-0 h-[37px] justify-center leading-[20.4px] text-center align-middle w-[37px] mr-1 p-2 rounded-[50%] right-0 hover:bg-blue-700/80"
                         >
-                            <i className="text-base font-normal box-border caret-transparent block leading-[17.6px] font-feather before:accent-auto before:box-border before:caret-transparent before:text-white before:text-base before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-[17.6px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-feather"></i>
+                            <ArrowRight />
                         </button>
                     </div>
                 </form>
@@ -147,12 +155,15 @@ export const FooterColumn = (props: FooterColumnProps) => {
                     {props.supportLinks?.map((link, index) => (
                         <li
                             key={index}
-                            className="box-border caret-transparent text-left mb-2 before:accent-auto before:bg-white/10 before:box-border before:caret-transparent before:text-white before:inline-block before:text-[8px] before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-[8px] before:list-outside before:list-none before:text-left before:indent-[0px] before:normal-case before:visible before:mr-1.5 before:p-1 before:rounded-[50%] before:border-separate before:font-bootstrap_icons"
+                            className="box-border caret-transparent text-left mb-2"
                         >
                             <a
                                 href={link.href}
-                                className="text-sm box-border caret-transparent leading-[21px]"
+                                className="text-sm box-border caret-transparent leading-[21px] inline-flex items-center gap-2"
                             >
+                                <span className="bg-white/20 rounded-full p-[3px]">
+                                    <AiFillCaretRight size={8} />
+                                </span>
                                 {link.text}
                             </a>
                         </li>
